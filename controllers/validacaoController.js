@@ -14,7 +14,11 @@ exports.validarCracha = async (req, res, next) => {
 
     if (resultado.authorized) {
       logInfo(`ACESSO LIBERADO para ${name || 'desconhecido'} (${cardNumber})`);
-      return res.status(200).json({ message: "Acesso liberado", + " " + ${cardNumber} + " " + ${name} );
+return res.status(200).json({
+  message: "Acesso liberado",
+  cardNumber: cardNumber,
+  name: name || 'desconhecido'
+});
     } else {
       logInfo(`ACESSO NEGADO para ${name || 'desconhecido'} (${cardNumber})`);
       return res.status(403).json({ message: "Acesso negado: crachá não autorizado" });
