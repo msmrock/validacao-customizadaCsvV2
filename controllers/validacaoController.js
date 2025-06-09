@@ -13,13 +13,22 @@ exports.validarCracha = async (req, res, next) => {
     const resultado = await validacaoService.validarCracha(req.body);
 
     if (resultado.authorized) {
+  const { name, cardNumber } = resultado.data;
+
+  logInfo(`ACESSO LIBERADO para ${name} (${cardNumber})`);
+
+  return res.status(200).json({
+    message: `Acesso liberado para ${name} (${cardNumber})`
+  });
+}
+    /*if (resultado.authorized) {
       logInfo(`ACESSO LIBERADO para ${name || 'desconhecido'} (${cardNumber})`);
 return res.status(200).json({
   message: "Acesso liberado",
   cardNumber: cardNumber,
   name: name || 'desconhecido'
 });
-    } else {
+    }*/ else {
       logInfo(`ACESSO NEGADO para ${name || 'desconhecido'} (${cardNumber})`);
       return res.status(403).json({ message: "Acesso negado: crachá não autorizado" });
     }
