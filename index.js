@@ -3,7 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
-//const winston = require("winston");
+const winston = require("winston");
 //const { carregarCrachaLiberado } = require("./utils/leituraCSV");
 
 const validacaoRoutes = require("./routes/validacaoRoutes");
