@@ -15,11 +15,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "logs/access.log"),
-  { flags: "a" }
-);
-app.use(morgan("combined", { stream: accessLogStream }));
+//const accessLogStream = fs.createWriteStream( path.join(__dirname, "logs/access.log"),{ flags: "a" });
+//app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(morgan('dev')); // escreve direto no console/log da Render
 
