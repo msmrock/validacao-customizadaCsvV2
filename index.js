@@ -21,6 +21,8 @@ const accessLogStream = fs.createWriteStream(
 );
 app.use(morgan("combined", { stream: accessLogStream }));
 
+app.use(morgan('dev')); // escreve direto no console/log da Render
+
 /*/ Logger configurado
 const logger = winston.createLogger({
   level: "info",
