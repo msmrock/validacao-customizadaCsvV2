@@ -3,7 +3,7 @@ const csvReader = require("../utils/csvReader");
 exports.validarCracha = async (dados) => {
   const autorizados = await csvReader.lerCSV("data/autorizados.csv");
   const autorizado = autorizados.find(
-    (pessoa) => pessoa.cardNumber === String(dados.cardNumber)
+    (pessoa) => pessoa.cardNumber.trim() === String(dados.cardNumber).trim()
   );
 
   if (!autorizado) {
